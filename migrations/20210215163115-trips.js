@@ -1,8 +1,6 @@
-'use strict';
-
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-     await queryInterface.createTable('trips', {
+    await queryInterface.createTable('trips', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,6 +9,15 @@ module.exports = {
       },
       name: {
         type: Sequelize.STRING,
+      },
+      creator: {
+        type: Sequelize.STRING,
+      },
+      start_date: {
+        type: Sequelize.DATE,
+      },
+      end_date: {
+        type: Sequelize.DATE,
       },
       created_at: {
         allowNull: false,
@@ -34,6 +41,11 @@ module.exports = {
       difficulty: {
         type: Sequelize.STRING,
       },
+      // order of preference of the current route in the trip
+      // Lower the value, least is the preference
+      order: {
+        type: Sequelize.INTEGER,
+      },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE,
@@ -53,7 +65,7 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('trips');
     await queryInterface.dropTable('routes');
-  }
+    await queryInterface.dropTable('trips');
+  },
 };

@@ -14,6 +14,11 @@ export default function initRouteModel(sequelize, DataTypes) {
       difficulty: {
         type: DataTypes.STRING,
       },
+      // order of preference of the current route in the trip
+      // Lower the value, least is the preference
+      order: {
+        type: DataTypes.INTEGER,
+      },
       tripId: {
         type: DataTypes.INTEGER,
         // This links the categoryId column to the id column in the categories table
@@ -34,6 +39,6 @@ export default function initRouteModel(sequelize, DataTypes) {
     {
       // The underscored option makes Sequelize reference snake_case names in the DB.
       underscored: true,
-    }
+    },
   );
-};
+}
