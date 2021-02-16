@@ -4,7 +4,7 @@ export default function initRoutesController(db) {
   const index = (request, response) => {
     db.Route.findAll()
       .then((routes) => {
-        response.send({routes});
+        response.send({ routes });
       })
       .catch((error) => console.log(error));
   };

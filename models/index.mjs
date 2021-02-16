@@ -10,7 +10,7 @@ const config = allConfig[env];
 
 const db = {};
 
-let sequelize = new Sequelize(config.database, config.username, config.password, config);
+const sequelize = new Sequelize(config.database, config.username, config.password, config);
 
 // add your model definitions to db here
 db.sequelize = sequelize;
