@@ -10,6 +10,7 @@ export default function bindRoutes(app) {
   const TripsController = initTripsController(db);
 
   app.get('/routes', RoutesController.index);
+  app.get('/route-names', RoutesController.getAllRouteNames);
   app.get('/trips', TripsController.index);
   app.get('/home', TripsController.index);
 }
