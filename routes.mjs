@@ -12,4 +12,5 @@ export default function bindRoutes(app) {
   app.get('/routes', RoutesController.index);
   app.get('/route-names', RoutesController.getAllRouteNames);
   app.get('/trips', TripsController.index);
+  app.get('/home', TripsController.index);
 }
